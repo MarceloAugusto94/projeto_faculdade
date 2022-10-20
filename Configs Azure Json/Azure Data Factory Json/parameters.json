@@ -1,0 +1,81 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscription": {
+            "value": "d59813fb-ea0c-4865-8a78-c6f1276833b2"
+        },
+        "resourceGroup": {
+            "value": "rg-projeto-faculdade"
+        },
+        "name": {
+            "value": "adf-projeto-faculdade"
+        },
+        "version": {
+            "value": "V2"
+        },
+        "location": {
+            "value": "eastus2"
+        },
+        "tagsByResource": {
+            "value": {
+                "Microsoft.DataFactory/factories": {
+                    "ambiente": "dev"
+                }
+            }
+        },
+        "vNetEnabled": {
+            "value": false
+        },
+        "publicNetworkAccess": {
+            "value": true
+        },
+        "privateEndpoints": {
+            "value": []
+        },
+        "gitConfigureLater": {
+            "value": true
+        },
+        "gitRepoType": {
+            "value": "FactoryVSTSConfiguration"
+        },
+        "gitAccountName": {
+            "value": ""
+        },
+        "gitProjectName": {
+            "value": ""
+        },
+        "gitRepositoryName": {
+            "value": ""
+        },
+        "gitCollaborationBranch": {
+            "value": "master"
+        },
+        "gitRootFolder": {
+            "value": "/"
+        },
+        "userAssignedIdentities": {
+            "value": {
+                "type": "SystemAssigned"
+            }
+        },
+        "userAssignedIdentitiesStr": {
+            "value": "{\"type\": \"SystemAssigned,UserAssigned\", \"userAssignedIdentities\": {\"\": {}"
+        },
+        "vaultBaseUrl": {
+            "value": ""
+        },
+        "keyName": {
+            "value": ""
+        },
+        "keyVersion": {
+            "value": ""
+        },
+        "enableCMK": {
+            "value": false
+        },
+        "cmkIdentity": {
+            "value": ""
+        }
+    }
+}
