@@ -1,0 +1,21 @@
+{
+	"name": "ds_refined_projeto_faculdade",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_datalake_projeto_faculdade",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "\"teste\"",
+				"fileSystem": "refined"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

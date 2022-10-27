@@ -1,0 +1,9 @@
+{
+	"name": "adf-projeto-faculdade",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ef19a608-dd70-4e39-8ce7-53191a396b70",
+		"tenantId": "270a5d99-99c9-4cea-b699-c75cdc928c04"
+	}
+}

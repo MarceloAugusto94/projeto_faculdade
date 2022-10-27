@@ -1,0 +1,17 @@
+{
+	"name": "ds_consumo_projeto_faculdade",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sqldatabase_projeto_faculdade",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TESTE"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

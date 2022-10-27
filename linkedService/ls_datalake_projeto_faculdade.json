@@ -1,0 +1,12 @@
+{
+	"name": "ls_datalake_projeto_faculdade",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://adlsprojetofaculdade.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDkzRTZEMUIyLTY5MUEtNDQ0OC1BNjNBLTMxNjA3NkNDNEMwN18wOTg1MjlkZi1lN2VmLTRjMTItYTgxNC05NTU0YTk4NmQxNDUiDQp9"
+		}
+	}
+}

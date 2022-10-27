@@ -1,0 +1,156 @@
+{
+	"name": "projeto_faculdade",
+	"properties": {
+		"activities": [
+			{
+				"name": "Aguardando desenvolvimento",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "transient_to_raw",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Aguardando desenvolvimento",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/guto.vhenrique94@gmail.com/projeto_faculdade/projeto-faculdade/transient-to-raw"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_projeto_faculdade",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "raw_to_trusted",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "transient_to_raw",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/guto.vhenrique94@gmail.com/projeto_faculdade/projeto-faculdade/raw-to-trusted"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_projeto_faculdade",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "trusted_to_refined",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "raw_to_trusted",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "\"teste\""
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_projeto_faculdade",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "refined_to_sql_database",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "trusted_to_refined",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ParquetSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_refined_projeto_faculdade",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_consumo_projeto_faculdade",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-10-27T14:53:50Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
