@@ -1,0 +1,70 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-projeto-faculdade"
+		},
+		"ls_databricks_projeto_faculdade_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_databricks_projeto_faculdade'"
+		},
+		"ls_datalake_projeto_faculdade_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_datalake_projeto_faculdade'"
+		},
+		"ls_sqldatabase_projeto_faculdade_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sqldatabase_projeto_faculdade'"
+		},
+		"ls_datalake_projeto_faculdade_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsprojetofaculdade.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-projeto-faculdade_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_databricks_projeto_faculdade_accessToken": {
+						"value": "[parameters('ls_databricks_projeto_faculdade_accessToken')]"
+					},
+					"ls_datalake_projeto_faculdade_accountKey": {
+						"value": "[parameters('ls_datalake_projeto_faculdade_accountKey')]"
+					},
+					"ls_sqldatabase_projeto_faculdade_connectionString": {
+						"value": "[parameters('ls_sqldatabase_projeto_faculdade_connectionString')]"
+					},
+					"ls_datalake_projeto_faculdade_properties_typeProperties_url": {
+						"value": "[parameters('ls_datalake_projeto_faculdade_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

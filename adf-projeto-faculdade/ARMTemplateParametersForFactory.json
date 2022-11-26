@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-projeto-faculdade"
+		},
+		"ls_databricks_projeto_faculdade_accessToken": {
+			"value": ""
+		},
+		"ls_datalake_projeto_faculdade_accountKey": {
+			"value": ""
+		},
+		"ls_sqldatabase_projeto_faculdade_connectionString": {
+			"value": ""
+		},
+		"ls_datalake_projeto_faculdade_properties_typeProperties_url": {
+			"value": "https://adlsprojetofaculdade.dfs.core.windows.net/"
+		}
+	}
+}
