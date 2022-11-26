@@ -20,6 +20,30 @@ client_secret = dbutils.secrets.get(scope = 'projeto-faculdade-scope', key = 'da
 
 # COMMAND ----------
 
+storage_account_name = 'adlsprojetofaculdade'
+container_name = 'raw'
+client_id = dbutils.secrets.get(scope = 'projeto-faculdade-scope', key = 'databricks-app-secret-client-id')
+tenant_id = dbutils.secrets.get(scope = 'projeto-faculdade-scope', key = 'databricks-app-tenant-id-2')
+client_secret = dbutils.secrets.get(scope = 'projeto-faculdade-scope', key = 'databricks-app-secret-client-secret-2')
+
+# COMMAND ----------
+
+storage_account_name = 'adlsprojetofaculdade'
+container_name = 'trusted'
+client_id = dbutils.secrets.get(scope = 'projeto-faculdade-scope', key = 'databricks-app-secret-client-id')
+tenant_id = dbutils.secrets.get(scope = 'projeto-faculdade-scope', key = 'databricks-app-tenant-id-2')
+client_secret = dbutils.secrets.get(scope = 'projeto-faculdade-scope', key = 'databricks-app-secret-client-secret-2')
+
+# COMMAND ----------
+
+storage_account_name = 'adlsprojetofaculdade'
+container_name = 'refined'
+client_id = dbutils.secrets.get(scope = 'projeto-faculdade-scope', key = 'databricks-app-secret-client-id')
+tenant_id = dbutils.secrets.get(scope = 'projeto-faculdade-scope', key = 'databricks-app-tenant-id-2')
+client_secret = dbutils.secrets.get(scope = 'projeto-faculdade-scope', key = 'databricks-app-secret-client-secret-2')
+
+# COMMAND ----------
+
 # configurações de OAuth
 
 configs = {"fs.azure.account.auth.type": "OAuth",
