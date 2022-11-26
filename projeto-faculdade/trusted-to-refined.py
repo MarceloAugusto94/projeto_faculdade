@@ -36,3 +36,7 @@ refined_delta_table = 'uf_tipo_refined'
 # COMMAND ----------
 
 df_refined.write.option("overwriteSchema", "true").mode("overwrite").format('delta').saveAsTable(refined_delta_table, path = path_refined)
+
+# COMMAND ----------
+
+dbutils.fs.ls('dbfs:/mnt/adlsprojetofaculdade/refined')
