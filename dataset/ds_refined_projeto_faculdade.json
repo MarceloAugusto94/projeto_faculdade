@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "\"teste\"",
+				"folderPath": "uf_tipo",
 				"fileSystem": "refined"
 			},
 			"compressionCodec": "snappy"
