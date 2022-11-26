@@ -85,7 +85,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "\"teste\""
+					"notebookPath": "/Repos/guto.vhenrique94@gmail.com/projeto_faculdade/projeto-faculdade/trusted-to-refined"
 				},
 				"linkedServiceName": {
 					"referenceName": "ls_databricks_projeto_faculdade",
