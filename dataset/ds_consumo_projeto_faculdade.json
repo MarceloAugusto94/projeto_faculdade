@@ -7,7 +7,31 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": []
+		"schema": [
+			{
+				"name": "sigla_uf",
+				"type": "varchar"
+			},
+			{
+				"name": "total",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ano",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "mes",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "uf_tipo_analise"
+		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }
